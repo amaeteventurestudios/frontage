@@ -34,4 +34,23 @@ Stand-in photographs come from Hallmark's photo library, which draws only on Wik
 
 Filled in as each site is built: its fonts, its photographs (author, licence, link) and anything else it borrows.
 
+### 1. Harmattan Orbital
+- Fonts: Chakra Petch, IBM Plex Sans, IBM Plex Mono (SIL OFL 1.1, Google Fonts).
+- Photograph: Namib-Naukluft sand dunes by Yathin S Krishnappa, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Namib-Naukluft_Sand_Dunes_(2011).jpg
+- Photograph: a person under the Milky Way during the Perseids by Giles Laurent, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:018_Human_looking_at_the_stars_during_Perseids_with_the_Milky_Way_in_the_background_Photo_by_Giles_Laurent.jpg
+- Code: three.js r160 (MIT) for the globe. The orbit is a two-body propagation with J2 drift written for the page.
+
+### 2. Silica Coast
+- Fonts: Funnel Display, Funnel Sans (SIL OFL 1.1, Google Fonts).
+
+### 17. Rig and Bone
+- Fonts: Bowlby One SC, Sofia Sans (SIL OFL 1.1, Google Fonts). Blender is named as the tool taught; Frontage is not affiliated with the Blender Foundation.
+
+### 21. Squeeze Drum
+- Fonts: Ultra, Chivo (SIL OFL 1.1, Google Fonts). The sound is synthesised with the Web Audio API; no samples are used.
+
+### 28. Circle
+- Fonts: General Sans by the Indian Type Foundry, ITF Free Font License, from Fontshare (https://www.fontshare.com/fonts/general-sans); Geist Mono (SIL OFL 1.1, Google Fonts).
+- Textures: cotton.svg and felt.svg are generated SVG noise written for the page.
+
 <!-- sites -->

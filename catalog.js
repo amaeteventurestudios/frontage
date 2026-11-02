@@ -52,6 +52,15 @@ const PICKS = {
     material: 'Real: the dundun family (iya ilu, gangan, kannango, atele, gudugudu) and how the squeeze tightens the head. Pictures: the instrument built in the page. Absent: price, users, reviews; the trial buttons send nothing',
     sweep: 'sloplint: 0 FAIL; 39b waived for the pad',
   },
+  'circle': {
+    made: 'Hallmark (floor, Coral theme, draw 9701bc), the savings circle computed in the page with Intl currency and date formatting',
+    theme: 'Coral', shape: 'Marquee Hero', genre: 'modern-minimal',
+    hero: 'Counter: the setup sheet is the visual, members, amount, currency and the ring passing the pot',
+    signature: 'Set the members, the amount and your currency, and the pot goes round the ring, with paid pressed into the paper',
+    sections: 'Hero setup sheet, every round on one sheet with your seat, one idea under many names, questions, the sign-up band, letter close',
+    material: 'Real: how a rotating savings group works and its names (ajo, esusu, susu, chama, stokvel, tontine, tanda). Pictures: the circle built in the page. Absent: users, money saved, reviews; amounts are sample inputs and the form sends nothing',
+    sweep: 'sloplint: 0 FAIL; 44c and 79 waived for the Counter hero',
+  },
 };
 
 export const SITES = [
@@ -82,7 +91,7 @@ export const SITES = [
   s(25, 'gele-lab',          'play',   'Gele Lab', 'A gele stylist who takes bridal and event bookings', 'Bloom', 'Narrative workflow', 'A 3D cloth that folds step by step into a finished gele as you scroll'),
   s(26, 'eko-filings',       'stretch', 'Eko Filings', 'A service that registers and licenses small businesses in Lagos', 'Newsprint', 'Index-first', 'Answer three questions and it lays out the filings your business needs, in order'),
   s(27, 'sentinel-slides',   'stretch', 'Sentinel Slides', 'A network of malaria test labs', 'Dose', 'Split studio', 'A microscope view you focus to find the parasite'),
-  s(28, 'circle',            'stretch', 'Circle', 'A rotating savings group app, like ajo, susu and chama', 'Coral', 'Narrative workflow', 'A ring of members passing the pot round, in your own currency'),
+  s(28, 'circle',            'stretch', 'Circle', 'A rotating savings group app, like ajo, susu and chama', 'Coral', 'Marquee hero', 'A ring of members passing the pot round, in your own currency'),
   s(29, 'long-rains-review', 'stretch', 'The Long Rains Review', 'A literary quarterly', 'Editorial', 'Specimen', 'A shelf of issue spines you pull out to read the contents'),
   s(30, 'harvest-cover',     'stretch', 'Harvest Cover', 'Crop insurance that pays out when the rain fails', 'Almanac', 'Letter', 'Enter your farm and see the rainfall trigger that would pay you'),
 ];

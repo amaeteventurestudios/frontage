@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Credits: Frontage</title>
+<meta name="description" content="Where everything in Frontage comes from: the skills, libraries, fonts and photographs, with their licences.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+<style>
+.read{max-width:720px;margin:0 auto;padding:24px 32px 64px}
+.read h1{font:400 clamp(44px,6vw,72px)/1 var(--serif);margin:24px 0 16px}
+.read h2{font:400 30px/1.15 var(--serif);margin:40px 0 8px}
+.read p,.read li{color:var(--ink-2)}
+.read a{text-decoration-color:var(--accent);text-underline-offset:3px}
+@media (max-width:900px){.read{padding:16px 16px 48px}}
+</style>
+</head>
+<body class="home-page">
+<header class="top">
+  <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11h22M12 11v17M20 11v17" stroke="currentColor" stroke-width="2"/></svg><span>Frontage</span></a>
+  <nav class="top-nav" aria-label="Main"><a href="../#all">All thirty</a><a href="https://github.com/amaeteventurestudios/frontage">Source</a>
+  <button class="icon-btn" id="btnTheme" aria-label="Switch light and dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button></nav>
+</header>
+<main class="read">
+  <h1>Credits</h1>
+  <p>Frontage is open source under the MIT licence. It is built on other people's work, listed here with where each piece came from and the terms it is used under. Every site credits its own fonts and photographs in its footer too.</p>
+  <h2>The recipe</h2>
+  <ul>
+    <li><a href="https://github.com/Nutlope/hallmark">Hallmark</a> by Together AI, MIT licence, copyright 2026 Hallmark contributors. It sets each site's floor, theme and page shape, and runs the checks.</li>
+    <li>Tasteskill (design-taste-frontend) for art direction, and Hairline (built on <a href="https://www.npmjs.com/package/@lucasmarkes/hairline">@lucasmarkes/hairline</a>) for isometric line figures, used through Claude skills.</li>
+    <li><a href="https://github.com/mrdoob/three.js">three.js</a> r160, MIT licence, copyright 2010 to 2023 three.js authors, for the 3D scenes.</li>
+  </ul>
+  <p>Frontage is independent. It is not made or endorsed by Hallmark, Together AI or any of the projects above.</p>
+  <h2>Fonts</h2>
+  <p>Instrument Serif and Instrument Sans, SIL Open Font License 1.1, from <a href="https://fonts.google.com/">Google Fonts</a>. Each site lists its own faces in its footer.</p>
+  <h2>Photographs</h2>
+  <p>Stand-in photographs come from Wikimedia Commons files that are CC0, public domain, CC BY or CC BY-SA, through Hallmark's photo library. Each is credited with its author, licence and a link to its page in the footer of the site that uses it.</p>
+  <h2>The brands</h2>
+  <p>Every business here is a real kind of business with real facts, but every brand name is invented. Any likeness to a real company is unintended. Real places are named as themselves.</p>
+</main>
+<script type="module">
+const root=document.documentElement;try{const t=localStorage.getItem('frontage.theme');if(t)root.dataset.theme=t;}catch{}
+document.getElementById('btnTheme').addEventListener('click',()=>{const d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=d?'light':'dark';try{localStorage.setItem('frontage.theme',root.dataset.theme)}catch{}});
+</script>
+</body>
+</html>

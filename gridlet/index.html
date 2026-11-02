@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gridlet: Frontage</title>
+<meta name="description" content="Controllers for village mini-grids. One of thirty websites designed with the Hallmark skill.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+</head>
+<body data-slug="gridlet">
+<a class="skip" href="#stage">Skip to the site</a>
+<div class="app">
+  <aside class="pane" id="pane" aria-label="All sites">
+    <div class="pane-head">
+      <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11h22M12 11v17M20 11v17" stroke="currentColor" stroke-width="2"/></svg><span>Frontage</span></a>
+      <button class="icon-btn pane-close" id="paneClose" aria-label="Close the list"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <label class="search"><span class="vh">Search the sites</span><input id="q" type="search" placeholder="Search thirty sites" autocomplete="off"></label>
+    <nav class="list" id="list" aria-label="Sites by group"></nav>
+    <p class="pane-foot"><a href="../credits/">Credits</a> and sources. Every brand here is invented.</p>
+  </aside>
+  <main class="main">
+    <header class="bar">
+      <button class="icon-btn pane-open" id="paneOpen" aria-label="Show all sites" aria-controls="pane"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      <div class="title" id="title"><b>Gridlet</b></div>
+      <div class="tools">
+        <button class="btn" id="btnPicks" aria-controls="picks" aria-expanded="false">Picks</button>
+        <a class="btn" id="btnOpen" href="../sites/gridlet/" target="_blank" rel="noopener" hidden>Open on its own</a>
+        <a class="icon-btn" href="../" aria-label="Frontage home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></a>
+        <button class="icon-btn" id="btnTheme" aria-label="Switch light and dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+      </div>
+    </header>
+    <section class="stage" id="stage" tabindex="-1"></section>
+  </main>
+  <aside class="picks" id="picks" aria-label="How this site was designed" hidden>
+    <div class="picks-head"><h2>Picks</h2><button class="icon-btn" id="picksClose" aria-label="Close picks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+    <dl id="picksBody"></dl>
+  </aside>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<noscript><p class="noscript">This page needs JavaScript for its list. The site itself opens at <a href="../sites/gridlet/">sites/gridlet/</a>.</p></noscript>
+<script type="module" src="../shell.js"></script>
+</body>
+</html>

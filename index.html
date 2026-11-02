@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Frontage: thirty websites, one recipe</title>
+<meta name="description" content="Thirty websites for invented brands, from satellite ground stations to talking-drum synths. Designed with Hallmark, Tasteskill, Hairline and Three.js, and shown live in one place.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shell.css">
+</head>
+<body class="home-page">
+<a class="skip" href="#all">Skip to the sites</a>
+<header class="top">
+  <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11h22M12 11v17M20 11v17" stroke="currentColor" stroke-width="2"/></svg><span>Frontage</span></a>
+  <nav class="top-nav" aria-label="Main">
+    <a href="#all">All thirty</a>
+    <a href="credits/">Credits</a>
+    <a href="https://github.com/amaeteventurestudios/frontage">Source</a>
+    <button class="icon-btn" id="btnTheme" aria-label="Switch light and dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <h1>Thirty websites, one recipe.</h1>
+      <p class="lede">Satellite ground stations and chip foundries beside a talking-drum synth and a savings circle. Every brand is invented. Every page was made by mixing Hallmark, Tasteskill, Hairline and Three.js.</p>
+      <a class="start" id="start" href="harmattan-orbital/">Open the first site</a>
+    </div>
+    <div class="hero-wall" id="wall" aria-hidden="true"></div>
+  </section>
+  <section class="all" id="all" aria-label="All thirty sites"></section>
+</main>
+<footer class="foot">
+  <p>Open source under the MIT licence. Everything borrowed is listed with its source on the <a href="credits/">credits page</a>.</p>
+</footer>
+<script type="module" src="shell.js"></script>
+</body>
+</html>

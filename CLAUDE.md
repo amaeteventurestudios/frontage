@@ -21,5 +21,14 @@ Where they disagree, Hallmark's floor wins. Record the ingredients used in the s
 - Open source: every borrowed font, photograph and library goes in `CREDITS.md` and the site's footer, with source and licence.
 - The shell itself follows the Hallmark floor: no tracked capitals, no eyebrows, no middle-dot meta strings.
 
+## Alignment (Amaete's rule, 2 November 2026)
+Every page must look symmetrical and deliberate at every size, from a 32 inch monitor (2560 wide) down to a 360 wide phone. Never leave everything left-aligned on a phone by default.
+- Centre, once the layout stacks (60rem and below): the hero's headline, sentence and actions; each section's intro (heading plus its one line); short standalone cards (a number or icon, a title, one line); closing bands and their actions; footer wordmarks, statements and sign-offs; icon rows and button groups that sit under a centred heading.
+- Keep left-aligned: running text longer than about three lines, forms and their labels, tables, FAQ rows, lists of rows, code, and anything read down a column.
+- A group is aligned as one: if the heading is centred, its sentence, buttons and icons are centred too. Never a centred heading over a left-aligned paragraph.
+- Desktop keeps the theme's composition, but spacing must mirror: equal gutters, the visual's centre level with the text block's, no lopsided empty bands.
+- Big screens: at 2200px and wider each page scales up with `zoom` (1.2, then 1.33 at 2500px) so a 32 inch screen shows the 1920 layout larger, not a small island in a sea of background. Canvases multiply their pixel ratio by that zoom.
+- Check alignment at 2560x1440, 1920x1080, 1440x900, 1280x800, 1194x834, 834x1194, 390x844 and 360x780 before a site goes live.
+
 ## Testing
 Serve the root (`python3 -m http.server 8800`) and screenshot with Playwright at 1440x900, 1280x800 and 390x844. No console errors. Run Hallmark's `sloplint --render` on each site before it goes live.

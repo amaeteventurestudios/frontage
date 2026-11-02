@@ -37,7 +37,8 @@ computePasses();
 /* ---------- the globe ---------- */
 const host = $('globe'), labels = $('labels');
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const ZOOM = parseFloat(getComputedStyle(document.documentElement).zoom) || 1; /* big screens scale the page up */
+renderer.setPixelRatio(Math.min(devicePixelRatio * ZOOM, 2.5));
 host.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
@@ -161,13 +162,29 @@ function placeLabel(el, world, w, h) {
   tmp.copy(world).project(camera);
   const facing = world.clone().normalize().dot(camera.position.clone().normalize()) > 0.15;
   el.style.opacity = facing ? '1' : '0';
-  el.style.left = `${(tmp.x * 0.5 + 0.5) * w}px`; el.style.top = `${(-tmp.y * 0.5 + 0.5) * h}px`;
+  const x = (tmp.x * 0.5 + 0.5) * w, y = (-tmp.y * 0.5 + 0.5) * h;
+  el.style.left = `${x}px`; el.style.top = `${y}px`;
+  /* flip to the left of the mark when the label would run off the right edge */
+  el.style.transform = x + el.offsetWidth + 14 > w ? 'translate(calc(-100% - 10px), -50%)' : '';
+  return { x, y };
+}
+/* keep the satellite's label clear of the station names */
+function clearOf(el, others) {
+  const r = el.getBoundingClientRect();
+  for (const o of others) {
+    const q = o.getBoundingClientRect();
+    if (o.style.opacity !== '0' && r.left < q.right && r.right > q.left && r.top < q.bottom + 4 && r.bottom > q.top - 4) {
+      el.style.transform = `${el.style.transform || 'translate(10px, -50%)'} translateY(${r.top < q.top ? -110 : 110}%)`;
+      return;
+    }
+  }
 }
 function render() {
   const w = host.clientWidth, h = host.clientHeight;
   renderer.render(scene, camera);
   stationObjs.forEach(o => placeLabel(o.el, o.p, w, h));
   placeLabel(satLabel, satMesh.position, w, h);
+  clearOf(satLabel, stationObjs.map(o => o.el));
 }
 function resize() {
   const w = host.clientWidth, h = host.clientHeight;

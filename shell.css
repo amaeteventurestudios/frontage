@@ -1,3 +1,4 @@
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 /* Frontage shell. Quiet chrome so the thirty sites carry the colour. */
 :root{
   --paper:#f3f0e9; --paper-2:#eae6dd; --raised:#fbfaf6; --ink:#1b1a18; --ink-2:#55524c; --ink-3:#86827a;
@@ -44,7 +45,7 @@ button{font:inherit;color:inherit}
 .top-nav a{text-decoration:none;color:var(--ink-2);transition:color .15s}
 .top-nav a:hover{color:var(--ink)}
 .hero{max-width:var(--max);margin:0 auto;padding:56px 32px 72px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center}
-.hero h1{font:400 clamp(48px,7vw,96px)/.98 var(--serif);margin:0 0 20px;overflow-wrap:break-word;min-width:0}
+.hero h1{font:400 clamp(48px,7vw,96px)/.98 var(--serif);margin:0 0 20px;overflow-wrap:break-word;min-width:0;text-wrap:balance}
 .lede{font-size:19px;color:var(--ink-2);max-width:46ch;margin:0 0 28px}
 .start{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:12px 20px;border-radius:var(--r);transition:transform .15s}
 .start:hover{transform:translateY(-1px)}
@@ -67,8 +68,8 @@ button{font:inherit;color:inherit}
 .foot{max-width:var(--max);margin:0 auto;padding:24px 32px 48px;color:var(--ink-3);font-size:14px;border-top:1px solid var(--line)}
 
 /* ---------- a site page ---------- */
-body[data-slug]{height:100dvh;overflow:hidden}
-.app{display:grid;grid-template-columns:var(--pane) minmax(0,1fr);height:100dvh}
+body[data-slug]{height:var(--vh100);overflow:hidden}
+.app{display:grid;grid-template-columns:var(--pane) minmax(0,1fr);height:var(--vh100)}
 body.pane-shut .app{grid-template-columns:0 minmax(0,1fr)}
 body.pane-shut .pane{visibility:hidden}
 .pane{display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden;background:var(--paper-2);border-right:1px solid var(--line)}
@@ -139,3 +140,18 @@ body.pane-shut .pane{visibility:hidden}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
 }
+
+/* alignment once the home page stacks: centre the intro, group heads, cards and footer */
+@media (max-width: 900px){
+  .hero > div:first-child{text-align:center}
+  .hero h1,.lede{margin-left:auto;margin-right:auto}
+  .hero-wall{max-width:480px;width:100%;margin:0 auto}
+  .g-head{flex-direction:column;align-items:center;gap:4px;text-align:center}
+  .foot{text-align:center}
+}
+@media (max-width: 480px){
+  .card{align-items:center;text-align:center}
+}
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px){ :root{zoom:1.2;--vh:calc(1dvh / 1.2);--vh100:calc(100dvh / 1.2)} }
+@media (min-width: 2500px){ :root{zoom:1.33;--vh:calc(1dvh / 1.33);--vh100:calc(100dvh / 1.33)} }

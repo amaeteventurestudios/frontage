@@ -8,12 +8,12 @@ function light(canvas, { wafer }) {
   let w = 0, h = 0, dpr = 1, visible = true, t0 = performance.now();
   const spec = ['--spec-1', '--spec-2', '--spec-3', '--spec-4'].map(css);
   const C = { clear: css('--color-paper').replace(/\)\s*$/, ' / 0)'), paper: css('--color-paper'), shade: css('--color-shade'), shade2: css('--color-shade-2'), lightc: css('--color-light'), ink: css('--color-ink'), rule: css('--color-rule'), paper3: css('--color-paper-3') };
-  function size() { dpr = Math.min(devicePixelRatio, 2); w = canvas.clientWidth; h = canvas.clientHeight; canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function size() { dpr = Math.min(devicePixelRatio * (parseFloat(getComputedStyle(document.documentElement).zoom) || 1), 2.5); w = canvas.clientWidth; h = canvas.clientHeight; canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   function draw(now) {
     const t = reduce ? 0.35 : ((now - t0) / 60000) % 1; // one band crosses in 60 s
     ctx.clearRect(0, 0, w, h);
     const narrow = w < 900;
-    const cx = narrow ? w * 0.66 : w * 0.74, cy = narrow ? h * 0.26 : h * 0.5, R = narrow ? Math.min(w * 0.4, h * 0.22) : Math.min(h * 0.38, w * 0.24);
+    const cx = narrow ? w * 0.5 : w * 0.74, cy = narrow ? h * 0.26 : h * 0.5, R = narrow ? Math.min(w * 0.36, h * 0.2) : Math.min(h * 0.38, w * 0.24);
     /* the prism fan, falling at a low angle from the top right */
     ctx.save();
     ctx.globalAlpha = 0.5;

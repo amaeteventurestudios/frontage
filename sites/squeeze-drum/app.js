@@ -47,7 +47,7 @@ function strike(f, vel = 0.9) {
 const trace = (() => {
   const cv = $('trace'), cap = $('traceCap'), g = cv.getContext('2d');
   let pts = [], t0 = 0, base = 0, raf = 0;
-  function size() { const r = Math.min(devicePixelRatio, 2); cv.width = cv.clientWidth * r; cv.height = cv.clientHeight * r; g.setTransform(r, 0, 0, r, 0, 0); draw(); }
+  function size() { const r = Math.min(devicePixelRatio * (parseFloat(getComputedStyle(document.documentElement).zoom) || 1), 2.5); cv.width = cv.clientWidth * r; cv.height = cv.clientHeight * r; g.setTransform(r, 0, 0, r, 0, 0); draw(); }
   function draw() {
     const w = cv.clientWidth, h = cv.clientHeight;
     g.clearRect(0, 0, w, h);

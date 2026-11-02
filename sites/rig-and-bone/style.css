@@ -9,6 +9,7 @@
 /* Frontage recipe: Hallmark floor and theme, an SVG rig solved by inverse kinematics in the page */
 @import url("./tokens.css");
 @import url("./base.css");
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 
 :root { --font-code: ui-monospace, "SF Mono", Menlo, monospace; }
 
@@ -43,12 +44,12 @@ a:hover { text-decoration-color: var(--color-accent); }
 .wordmark { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-ink); text-decoration: none; white-space: nowrap; }
 
 /* hero */
-.hero { min-height: calc(100dvh - 80px); display: grid; align-items: center; padding-block: var(--space-md) var(--space-xl); }
+.hero { min-height: calc(var(--vh100) - 80px); display: grid; align-items: center; padding-block: var(--space-md) var(--space-xl); }
 .hero-in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--space-3xl); align-items: center; }
 .hero .lead { margin-top: var(--space-lg); }
 .actions { display: flex; flex-wrap: wrap; gap: var(--space-lg); margin-top: var(--space-xl); }
 .rig-card { margin: 0; background: var(--color-accent-2); rotate: -1.5deg; overflow: hidden; }
-.rig { width: 100%; height: auto; max-height: 68dvh; touch-action: none; user-select: none; }
+.rig { width: 100%; height: auto; max-height: calc(68 * var(--vh)); touch-action: none; user-select: none; }
 .rig-cap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); padding: var(--space-md); background: var(--color-paper-3); border-top: var(--rule-bar) dashed var(--color-ink); font-weight: 700; color: var(--color-ink); }
 .rig-tools { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .handle { cursor: grab; }
@@ -113,3 +114,19 @@ html:not(.js) .rig-card { display: none; }
   .hero .btn { padding: 0 var(--space-md); }
 }
 @media (prefers-reduced-motion: reduce) { .btn:hover { translate: none; } }
+
+/* alignment once the page stacks: centre the intros and the rig's tools, keep weeks, questions, form and code left */
+@media (max-width: 60rem) {
+  .hero-text, .split-text { text-align: center; justify-items: center; }
+  .hero-text h1, .hero-text .lead, .split-text h2, .split-text .lead, .faq h2 { margin-inline: auto; }
+  .faq .split-in > h2 { text-align: center; }
+  .hero .actions { justify-content: center; }
+  .rig-cap { flex-direction: column; justify-content: center; text-align: center; }
+  .rig-tools { justify-content: center; }
+  .colophon { text-align: center; }
+  .colophon p { margin-inline: auto; }
+}
+@media (max-width: 40rem) { .nav-in { justify-content: center; } }
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px) { :root { zoom: 1.2; --vh: calc(1dvh / 1.2); --vh100: calc(100dvh / 1.2); } }
+@media (min-width: 2500px) { :root { zoom: 1.33; --vh: calc(1dvh / 1.33); --vh100: calc(100dvh / 1.33); } }

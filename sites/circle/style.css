@@ -8,6 +8,7 @@
 /* Frontage recipe: Hallmark floor and theme, the savings circle computed in the page with Intl currency formatting */
 @import url("./tokens.css");
 @import url("./base.css");
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 
 body { color: var(--color-ink-2); }
 h1, h2, h3 { font-weight: var(--display-weight); color: var(--color-ink); }
@@ -43,7 +44,7 @@ a:hover { text-decoration-color: var(--color-accent-2); }
 .wordmark { font: 600 var(--text-xl)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; }
 
 /* counter hero */
-.hero { min-height: calc(100dvh - 72px); display: grid; align-items: center; padding-block: var(--space-xl); }
+.hero { min-height: calc(var(--vh100) - 72px); display: grid; align-items: center; padding-block: var(--space-xl); }
 .hero-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: center; }
 .hero .lead { margin-top: var(--space-lg); max-width: 30ch; }
 .actions { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-xl); }
@@ -70,7 +71,7 @@ a:hover { text-decoration-color: var(--color-accent-2); }
 .money input:disabled, .join input:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .ring-wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-lg); align-items: center; }
-.ring { width: 100%; max-height: 46dvh; }
+.ring { width: 100%; max-height: calc(46 * var(--vh)); }
 .ring .track { fill: none; stroke: var(--color-rule-2); stroke-width: 1.5; stroke-dasharray: 3 6; }
 .ring .seat-c { fill: var(--color-cotton); stroke: var(--color-print); stroke-width: 1.5; }
 .ring .seat-c.took { fill: var(--color-paper-3); }
@@ -160,7 +161,28 @@ tr.mine td:nth-child(3) { font-weight: 600; }
   .money input { width: 100%; }
   .money { width: 100%; }
   .field--money { flex: 1 1 100%; }
-  th:nth-child(2), td:nth-child(2), th:nth-child(5), td:nth-child(5) { display: none; }
+  th:nth-child(1), td:nth-child(1), th:nth-child(2), td:nth-child(2), th:nth-child(5), td:nth-child(5) { display: none; }
   th, td { padding-inline: var(--space-xs); }
+  th { white-space: normal; vertical-align: bottom; }
 }
 @media (prefers-reduced-motion: reduce) { .btn:hover, .btn:active { transform: none; } .ring .pot-c { transition: none; } }
+
+/* alignment once the page stacks: centre the intros, the setup controls, the cards, the band and the sign-off; keep the table, questions and form left */
+@media (max-width: 60rem) {
+  .hero-text, .ledger-head, .names-text, .start-in, .close-in { text-align: center; justify-items: center; }
+  .hero h1, .hero .lead, .ledger-head .lead, .names-text .lead, .start h2, .legal { margin-inline: auto; }
+  .hero .actions { justify-content: center; }
+  .ledger-head { flex-direction: column; align-items: center; }
+  .seat { justify-items: center; }
+  .setup-top { justify-content: center; }
+  .field { justify-items: center; text-align: center; }
+  .field legend { margin-inline: auto; }
+  .setup-note { text-align: center; }
+  .pot { justify-items: center; text-align: center; }
+  .card { text-align: center; justify-items: center; }
+  .qs-in > h2 { text-align: center; margin-inline: auto; }
+  .join { width: 100%; max-width: 32rem; text-align: left; justify-self: center; }
+}
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px) { :root { zoom: 1.2; --vh: calc(1dvh / 1.2); --vh100: calc(100dvh / 1.2); } }
+@media (min-width: 2500px) { :root { zoom: 1.33; --vh: calc(1dvh / 1.33); --vh100: calc(100dvh / 1.33); } }

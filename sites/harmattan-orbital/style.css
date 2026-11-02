@@ -9,8 +9,9 @@
 /* Frontage recipe: Hallmark floor and theme, Three.js globe, orbit maths computed in the page */
 @import url("./tokens.css");
 @import url("./base.css");
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 
-:root { --mast-h: 72px; --globe-h: min(calc(100dvh - var(--mast-h) - 200px), 660px); }
+:root { --mast-h: 72px; --globe-h: min(calc(var(--vh100) - var(--mast-h) - 200px), 660px); }
 
 .skip { position: absolute; left: var(--space-sm); top: calc(var(--space-3xl) * -1); z-index: var(--z-toast); background: var(--color-ink); color: var(--color-accent-ink); padding: var(--space-xs) var(--space-sm); }
 .skip:focus-visible { top: var(--space-sm); }
@@ -40,7 +41,7 @@ a:hover { text-decoration-thickness: 2px; }
 .mast-book { justify-self: end; }
 
 /* hero */
-.hero { min-height: calc(100dvh - var(--mast-h)); display: grid; align-items: center; padding-block: var(--space-lg); }
+.hero { min-height: calc(var(--vh100) - var(--mast-h)); display: grid; align-items: center; padding-block: var(--space-lg); }
 .hero-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: center; }
 .hero h1 { font-size: clamp(2.5rem, 3.6vw + 0.75rem, 4.25rem); max-width: 12ch; }
 .hero .lead { margin-top: var(--space-lg); color: var(--color-ink-2); }
@@ -138,7 +139,7 @@ html:not(.js) .globe-cap .scrub { display: none; }
 .foot-h { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--color-muted); max-width: none; }
 
 @media (max-width: 60rem) {
-  :root { --globe-h: 56dvh; }
+  :root { --globe-h: calc(56 * var(--vh)); }
   .mast-links { display: none; }
   .mast-in { grid-template-columns: minmax(0, 1fr) auto; }
   .wordmark { font-size: var(--text-lg); }
@@ -156,4 +157,37 @@ html:not(.js) .globe-cap .scrub { display: none; }
   .scrub { grid-template-columns: minmax(0, 1fr) 9ch; }
   .scrub span { grid-column: span 2; }
   .register th, .register td { padding: var(--space-md) var(--space-sm); }
+  .mast-book { display: none; }
+  .mast-in { grid-template-columns: minmax(0, 1fr); justify-items: center; }
 }
+
+/* alignment once the page stacks: centre the intros, keep tables, forms and pass cards left */
+@media (max-width: 60rem) {
+  .hero-text, .split-head, .flow > .container > h2 { text-align: center; justify-items: center; }
+  .hero-text h1, .hero-text .lead, .split-head h2, .split-head .lead, .flow h2 { margin-inline: auto; }
+  .hero .actions { justify-content: center; }
+  .flow .dim { margin-block: var(--space-xl) var(--space-md); }
+  .tabs { margin-inline: auto; }
+  .stages li { text-align: center; justify-items: center; border-left: 0; padding-left: 0; border-top: var(--rule-hair) solid var(--color-rule-2); padding-top: var(--space-lg); }
+  .foot-in { text-align: center; justify-items: center; }
+  .foot-mark { margin-inline: auto; }
+  .foot-col { justify-items: center; }
+  .foot-col a { margin-inline: auto; }
+}
+@media (max-width: 40rem) {
+  .register thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .register, .register tbody, .register tr, .register th, .register td { display: block; width: 100%; }
+  .register { border: 0; }
+  .register tr { border: var(--rule-hair) solid var(--color-rule); padding: var(--space-md) var(--space-md) var(--space-xs); margin-bottom: var(--space-md); }
+  .register tbody th { padding: 0 0 var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+  .register td { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--space-sm); padding: var(--space-sm) 0; white-space: normal; }
+  .register td:last-child { border-bottom: 0; }
+  .register td::before { content: attr(data-l); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); letter-spacing: 0; }
+}
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px) { :root { zoom: 1.2; --vh: calc(1dvh / 1.2); --vh100: calc(100dvh / 1.2); } }
+@media (min-width: 2500px) { :root { zoom: 1.33; --vh: calc(1dvh / 1.33); --vh100: calc(100dvh / 1.33); } }
+/* a photograph that fails to load takes its band with it, so no empty slab is left */
+.photo-band:has([data-slot]:not(:has(img))) { display: none; }
+.book-img:not(:has(img)) { display: none; }
+.book-in:has(.book-img:not(:has(img))) { grid-template-columns: minmax(0, 8fr); justify-content: center; }

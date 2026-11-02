@@ -7,8 +7,9 @@
 /* Frontage recipe: Hallmark floor and theme, a Web Audio synth and a canvas pitch trace in the page */
 @import url("./tokens.css");
 @import url("./base.css");
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 
-:root { --bar-h: 72px; --pad: clamp(180px, 26dvh, 260px); --squeeze: 0; }
+:root { --bar-h: 72px; --pad: clamp(180px, calc(26 * var(--vh)), 260px); --squeeze: 0; }
 body { color: var(--color-ink-2); font-size: 1.0625rem; }
 h1, h2, h3 { font-weight: var(--display-weight); line-height: 1.08; color: var(--color-ink); }
 .skip { position: absolute; left: var(--space-sm); top: calc(var(--space-3xl) * -1); z-index: var(--z-toast); background: var(--color-ink); color: var(--color-accent-ink); padding: var(--space-xs) var(--space-sm); }
@@ -41,7 +42,7 @@ a { text-decoration-color: var(--color-accent); }
 .bar .btn--secondary { margin-left: auto; min-height: 44px; }
 
 /* corridor hero */
-.hero { min-height: calc(100dvh - var(--bar-h)); display: grid; align-items: center; padding-block: var(--space-xl); }
+.hero { min-height: calc(var(--vh100) - var(--bar-h)); display: grid; align-items: center; padding-block: var(--space-xl); }
 .corridor { display: grid; justify-items: center; text-align: center; gap: var(--space-lg); }
 .corridor h1 { font-size: clamp(2.75rem, 4.6vw + 0.5rem, 5rem); max-width: 14ch; }
 .corridor .lead { max-width: 40ch; }
@@ -117,5 +118,24 @@ a { text-decoration-color: var(--color-accent); }
   .get-in { grid-template-columns: minmax(0, 1fr); min-height: 0; }
   .get-in h2 { grid-row: auto; }
 }
-@media (max-width: 40rem) { .bar .btn--secondary { display: none; } .actions { gap: var(--space-lg); } }
+@media (max-width: 40rem) { .bar .btn--secondary { display: none; } .bar-in { justify-content: center; } .actions { gap: var(--space-lg); } }
 @media (prefers-reduced-motion: reduce) { .pad { transform: none; } }
+
+/* alignment once the page stacks: centre the intros, panels, the trial band and the footer; keep the spec rows left */
+@media (max-width: 60rem) {
+  .voices h2, .label-panel h2 { text-align: center; margin-inline: auto; }
+  .voice { text-align: center; justify-items: center; }
+  .play { justify-self: center; }
+  .panels { text-align: center; }
+  .panels h2, .panel p { margin-inline: auto; }
+  .trace figcaption { text-align: center; }
+  .get-in { text-align: center; justify-items: center; }
+  .get h2 { margin-inline: auto; }
+  .get .actions { justify-content: center; }
+  .foot .container { text-align: center; }
+  .foot-line { margin-inline: auto; }
+  .foot-links { justify-content: center; }
+}
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px) { :root { zoom: 1.2; --vh: calc(1dvh / 1.2); --vh100: calc(100dvh / 1.2); } }
+@media (min-width: 2500px) { :root { zoom: 1.33; --vh: calc(1dvh / 1.33); --vh100: calc(100dvh / 1.33); } }

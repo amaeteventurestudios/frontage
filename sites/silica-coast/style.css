@@ -8,6 +8,7 @@
 /* Frontage recipe: Hallmark floor and theme, generated light on canvas, structure diagrams drawn from real dimensions */
 @import url("./tokens.css");
 @import url("./base.css");
+:root { --vh: 1dvh; --vh100: 100dvh; } /* viewport height that stays true under the big-screen zoom */
 
 :root { --slab-h: 64px; }
 body { font-size: 1.0625rem; color: var(--color-ink-2); line-height: 1.6; }
@@ -38,7 +39,7 @@ a:hover { color: var(--color-accent); }
 .slab a:focus-visible { outline: 2px solid var(--color-accent-ink); outline-offset: 3px; }
 
 /* poster hero: the light falls on the right, the head sits on plain paper low left */
-.hero { position: relative; min-height: calc(100dvh - var(--slab-h)); display: grid; align-items: end; overflow: hidden; }
+.hero { position: relative; min-height: calc(var(--vh100) - var(--slab-h)); display: grid; align-items: end; overflow: hidden; }
 .light { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-in { position: relative; padding-block: var(--space-3xl) var(--space-3xl); }
 .hero h1 { font-size: clamp(3rem, 5.4vw + 0.5rem, 6rem); max-width: 11ch; }
@@ -57,9 +58,9 @@ a:hover { color: var(--color-accent); }
 .scale-dots a[aria-current="step"] { background: var(--color-ink); color: var(--color-accent-ink); box-shadow: none; }
 .scale-dots a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .frames { display: grid; gap: var(--space-3xl); }
-.frame { margin: 0; padding: var(--space-xl); min-height: 72dvh; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--space-lg); align-content: center; }
+.frame { margin: 0; padding: var(--space-xl); min-height: calc(72 * var(--vh)); display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--space-lg); align-content: center; }
 .clear { background: color-mix(in oklab, var(--color-light) 84%, transparent); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-card); }
-.frame svg { width: 100%; height: auto; max-height: 62dvh; }
+.frame svg { width: 100%; height: auto; max-height: calc(62 * var(--vh)); }
 .frame figcaption { font-size: var(--text-md); color: var(--color-ink-2); max-width: 52ch; }
 html:not(.js) .frame svg { display: none; }
 
@@ -101,3 +102,18 @@ html:not(.js) .frame svg { display: none; }
 }
 @media (max-width: 40rem) { .mail { font-size: var(--text-lg); overflow-wrap: normal; white-space: nowrap; } }
 @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+
+/* alignment once the page stacks: centre the intros and statements, keep the service rows left */
+@media (max-width: 60rem) {
+  .hero-in, .pane-sticky, .where-in, .contact-in, .contact-lines, .mast .container { text-align: center; justify-items: center; }
+  .hero h1, .hero .lead, .statement, .contact h2, .contact p, .mast-word, .legal { margin-inline: auto; }
+  .hero .actions, .scale-dots, .mast-links { justify-content: center; }
+  .pane-now { justify-items: center; }
+  .frame figcaption { text-align: center; margin-inline: auto; }
+  .services h2 { text-align: center; margin-inline: auto; }
+  .rows li { text-align: center; justify-items: center; }
+  .rows li p { margin-inline: auto; }
+}
+/* big screens: show the 1920 layout larger */
+@media (min-width: 2200px) { :root { zoom: 1.2; --vh: calc(1dvh / 1.2); --vh100: calc(100dvh / 1.2); } }
+@media (min-width: 2500px) { :root { zoom: 1.33; --vh: calc(1dvh / 1.33); --vh100: calc(100dvh / 1.33); } }

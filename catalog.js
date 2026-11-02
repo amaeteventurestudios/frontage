@@ -34,6 +34,15 @@ const PICKS = {
     material: 'Real: typical wafer, die, bump, microbump and gate dimensions, the Lekki Free Zone and Lekki Deep Sea Port. Pictures: diagrams built in the page. Absent: customers, capacity, prices',
     sweep: 'sloplint: 0 FAIL; 77 and 82 waived on the record',
   },
+  'rig-and-bone': {
+    made: 'Hallmark (floor, Sticker theme, draw 6c0246), an SVG rig solved by two-bone inverse kinematics in the page',
+    theme: 'Sticker, sheet colourway', shape: 'Split Studio', genre: 'playful',
+    hero: 'Settled: the headline beside a die-cut mannequin you pose',
+    signature: 'Drag a hand or a foot and the elbow or knee solves live; the same solve is printed as code at the foot of the page',
+    sections: 'Hero rig, six weeks as stuck-down cards, questions, the sign-up form, the IK code, colophon',
+    material: 'Real: the law-of-cosines IK solve, Blender 4.x as the tool. Pictures: the rig built in the page. Absent: prices, dates, student numbers, testimonials',
+    sweep: 'sloplint: 0 FAIL; 39b, 44c and 79 waived on the record',
+  },
 };
 
 export const SITES = [
@@ -53,7 +62,7 @@ export const SITES = [
   s(14, 'proofwork',         'code',   'Proofwork', 'Formal verification for payment code', 'Vellum', 'Manifesto', 'A proof tree that unfolds as you read the argument'),
   s(15, 'agent-yard',        'code',   'Agent Yard', 'Watching teams of AI agents at work', 'Ultraviolet', 'Bento grid', 'Swimlanes of agents handing work to each other in real time'),
   s(16, 'frame-thirteen',    'motion', 'Frame Thirteen', 'An independent 2D animation studio', 'Pasteup', 'Portfolio grid', 'A flipbook hero you scrub frame by frame'),
-  s(17, 'rig-and-bone',      'motion', 'Rig and Bone', 'A course on rigging animated characters', 'Sticker', 'Component playground', 'A puppet whose joints you drag, the arm following like a real rig'),
+  s(17, 'rig-and-bone',      'motion', 'Rig and Bone', 'A six-week course in character rigging for animators', 'Sticker', 'Component playground', 'A puppet whose joints you drag, the arm following like a real rig'),
   s(18, 'easing-kitchen',    'motion', 'Easing Kitchen', 'An animation library app developers download', 'Squeeze', 'Catalogue', 'Every timing curve animates the same pot lid, so you feel the difference before you copy it'),
   s(19, 'night-bus-titles',  'motion', 'Night Bus Titles', 'A studio for film title sequences', 'Dusk', 'Marquee hero', 'A kinetic title card that plays on load and replays on click'),
   s(20, 'bogolan-motion',    'motion', 'Bogolan Motion', 'A stop-motion studio inspired by mud cloth', 'Loom', 'Photographic', 'Toggle between smooth motion and 12 frames a second'),

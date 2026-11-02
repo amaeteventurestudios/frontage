@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rig and Bone: a rigging course for animators</title>
+<meta name="description" content="A six-week course in character rigging for animators, built in Blender. Bones, weights, IK and FK, faces, and controls an animator wants to use.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d9257a'/%3E%3Ccircle cx='10' cy='22' r='3.5' fill='%23fff'/%3E%3Ccircle cx='22' cy='10' r='3.5' fill='%23fff'/%3E%3Cpath d='M10 22L16 12L22 10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Sofia+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="container nav-in">
+    <a class="wordmark" href="#top">Rig and Bone</a>
+    <a class="btn btn--primary btn--sm" href="#join">Join the next cohort</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="container hero-in">
+      <div class="hero-text">
+        <h1 id="hero-h">Rig a character that moves right</h1>
+        <p class="lead">A six-week course in rigging for animators, built in Blender.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#join">Join the next cohort</a>
+          <a class="btn" href="#maths">See the maths</a>
+        </div>
+      </div>
+      <figure class="rig-card diecut">
+        <svg id="rig" class="rig diagram" viewBox="0 0 520 560" role="img" aria-label="A working rig: drag the hands and feet and the elbows and knees solve with two-bone inverse kinematics"></svg>
+        <figcaption class="rig-cap">
+          <p id="rigNote" role="status">Drag a hand or a foot.</p>
+          <div class="rig-tools">
+            <button type="button" class="chip" id="flip" aria-pressed="false">Flip the elbows</button>
+            <button type="button" class="chip" id="reset">Reset the pose</button>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="syllabus split" aria-labelledby="sy-h">
+    <div class="container split-in">
+      <div class="split-text">
+        <h2 id="sy-h">Six weeks, one rig</h2>
+        <p class="lead">One character, rigged a week at a time.</p>
+      </div>
+      <ol class="weeks">
+        <li class="week diecut"><span class="wk">1</span><div><h3>Bones and chains</h3><p>Joints, names, a rest pose.</p></div></li>
+        <li class="week diecut"><span class="wk">2</span><div><h3>Weights</h3><p>Skin that bends without collapsing.</p></div></li>
+        <li class="week diecut"><span class="wk">3</span><div><h3>IK and FK</h3><p>Both, and a clean switch.</p></div></li>
+        <li class="week diecut"><span class="wk">4</span><div><h3>The face</h3><p>Shape keys for brows, lids, jaw.</p></div></li>
+        <li class="week diecut"><span class="wk">5</span><div><h3>Controls</h3><p>Shapes an animator can grab.</p></div></li>
+        <li class="week diecut"><span class="wk">6</span><div><h3>Hand it over</h3><p>Lock it, document it, ship it.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq split" aria-labelledby="fq-h">
+    <div class="container split-in">
+      <h2 id="fq-h">Before you join</h2>
+      <div class="qs">
+        <details><summary>Do I need to know Blender?</summary><p>Enough to move around and model a simple shape.</p></details>
+        <details><summary>Which version of Blender?</summary><p>Any 4.x release. It is free.</p></details>
+        <details><summary>Is it live or recorded?</summary><p>Recorded lessons, plus one live review of your rig a week.</p></details>
+        <details><summary>What do I finish with?</summary><p>A character rig an animator can pick up and use.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="join split" id="join" aria-labelledby="jn-h">
+    <div class="container split-in">
+      <div class="split-text">
+        <h2 id="jn-h">Join the next cohort</h2>
+        <p class="lead">Cohorts stay small so every rig gets opened in the live review.</p>
+      </div>
+      <form class="form diecut" id="joinForm" data-endpoint="" novalidate>
+        <label><span>Your name</span><input name="name" autocomplete="name" required></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>What do you animate?</span>
+          <select name="kind"><option>Characters for film or series</option><option>Characters for games</option><option>Still learning</option></select></label>
+        <button class="btn btn--primary" type="submit">Hold my place</button>
+        <p class="form-note" id="formNote">Frontage showcase: this form is not connected and sends nothing.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="maths split" id="maths" aria-labelledby="mx-h">
+    <div class="container split-in">
+      <div class="split-text">
+        <h2 id="mx-h">The maths in that arm</h2>
+        <p class="lead">Two bones, one target, the law of cosines. Week three starts here.</p>
+      </div>
+      <figure class="code diecut">
+        <pre><code><span class="k">def</span> two_bone_ik(root, target, a, b, bend=1):
+    dx, dy = target.x - root.x, target.y - root.y
+    d = min(hypot(dx, dy), a + b - 1e-6)
+    cos_r = (a*a + d*d - b*b) / (2*a*d)
+    upper = atan2(dy, dx) - bend * acos(clamp(cos_r))
+    elbow = Vec(root.x + a*cos(upper), root.y + a*sin(upper))
+    lower = atan2(target.y - elbow.y, target.x - elbow.x)
+    <span class="k">return</span> upper, lower, elbow</code></pre>
+        <figcaption>This solve runs the rig above.</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <p>Rig and Bone is an invented brand, part of <a href="../../">Frontage</a>. Type: Bowlby One SC and Sofia Sans (SIL OFL). Not affiliated with the Blender Foundation.</p>
+  </div>
+</footer>
+<script>document.documentElement.classList.add('js');</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

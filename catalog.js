@@ -17,13 +17,13 @@ const s = (n, slug, group, name, what, theme, shape, signature) =>
 /* Picks recorded from each site's Hallmark stamp after its sweep */
 const PICKS = {
   'harmattan-orbital': {
-    made: 'Hallmark (floor, Blueprint theme, draw 6c604a), Three.js globe, orbit maths computed in the page',
-    theme: 'Blueprint, cyanotype sheet', shape: 'Narrative Workflow', genre: 'modern-minimal',
-    hero: 'Stage: the headline beside a live globe with a time scrubber',
-    signature: 'The three stations\' coverage circles on a globe, with a sample satellite moving through them as you drag time',
-    sections: 'Hero, the Namib as a full-bleed photograph, four steps on a dimension line, the station register, next passes by station, the booking title block, footer',
-    material: 'Real: station coordinates, orbital mechanics, pass times and coverage worked out live. Pictures: two Wikimedia Commons photographs. Absent: customers, prices, uptime',
-    sweep: 'sloplint: Floor clean except 76 (Commons is blocked in the build sandbox, so the render tier could not load the photos); 39b, 44c and 79 waived on the record',
+    made: 'Hallmark (floor, Blueprint re-lit at night), Tasteskill art direction and motion layer, Three.js globe and pass scene, orbit and sun maths computed in the page, honest 24-hour pass chart',
+    theme: 'Blueprint, re-lit at night in Harmattan amber', shape: 'Narrative Workflow', genre: 'atmospheric',
+    hero: 'Full-bleed stage: an opening orbit draw, then the headline beside a live globe lit by the real sun, with a time scrubber',
+    signature: 'One real pass over Kano told by scroll: the dish turns and tilts to follow the satellite, the downlink streams in, the dials read the live angles',
+    sections: 'Hero globe, the pinned pass story, the Namib as a parallax band, the station map with drawn coverage rings, the 24-hour pass chart that fills the booking form, the booking form over the night sky, footer',
+    material: 'Real: station coordinates, orbital mechanics, the sun position, pass times and coverage worked out live. Pictures: two Wikimedia Commons photographs. Absent: customers, prices, uptime',
+    sweep: 'sloplint: 0 FAIL; 81 shows only because Commons is blocked in the build sandbox; 39b, 44c, 59, 79 and 82 waived on the record',
   },
   'silica-coast': {
     made: 'Hallmark (floor, Refract theme, draw 9f3cce with the shape swapped), generated light on canvas, structure diagrams drawn to real proportions',

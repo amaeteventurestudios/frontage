@@ -90,3 +90,25 @@ function edge(s, a, b) {
   for (let i = 0; i < 12; i++) { const m = (a + b) / 2; (above(m) === up) ? (b = m) : (a = m); }
   return Math.round((a + b) / 2);
 }
+
+/* azimuth (deg, clockwise from north) and elevation of the satellite from a station, from local east-north-up */
+export function lookAngles(s, p) {
+  const g = stationEcef(s), la = s.lat * D, lo = s.lon * D;
+  const d = [p[0] - g[0], p[1] - g[1], p[2] - g[2]];
+  const e = -Math.sin(lo) * d[0] + Math.cos(lo) * d[1];
+  const n = -Math.sin(la) * Math.cos(lo) * d[0] - Math.sin(la) * Math.sin(lo) * d[1] + Math.cos(la) * d[2];
+  const u = Math.cos(la) * Math.cos(lo) * d[0] + Math.cos(la) * Math.sin(lo) * d[1] + Math.sin(la) * d[2];
+  const range = Math.hypot(e, n, u);
+  return { az: ((Math.atan2(e, n) / D) + 360) % 360, el: Math.asin(u / range) / D, range };
+}
+
+/* the subsolar point (deg) at time ms, from the low-precision solar position in the Astronomical Almanac */
+export function subsolar(ms) {
+  const n = ms / 86400000 + 2440587.5 - 2451545;
+  const L = (280.46 + 0.9856474 * n) % 360, g = ((357.528 + 0.9856003 * n) % 360) * D;
+  const lam = (L + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * D, eps = (23.439 - 0.0000004 * n) * D;
+  const dec = Math.asin(Math.sin(eps) * Math.sin(lam));
+  const ra = Math.atan2(Math.cos(eps) * Math.sin(lam), Math.cos(lam));
+  const lon = ((ra - gmst(ms)) / D + 540) % 360 - 180;
+  return { lat: dec / D, lon };
+}

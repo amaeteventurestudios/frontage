@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Squeeze Drum: a talking drum synth</title>
+<meta name="description" content="A synth modelled on the Yoruba talking drum. Strike it, squeeze it, bend the note. Play it in your browser, then download the trial.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6efd6'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%23d4421f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ultra&family=Chivo:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="container bar-in">
+    <a class="wordmark" href="#top">Squeeze Drum</a>
+    <label class="search">
+      <span class="visually-hidden">Find a voice</span>
+      <input id="find" type="search" placeholder="Find a voice: lead, high, steady" autocomplete="off">
+    </label>
+    <a class="btn btn--secondary" href="#get">Download the trial</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="container corridor">
+      <h1 id="hero-h">Squeeze the drum, bend the note</h1>
+      <p class="lead">A synth modelled on the Yoruba talking drum, for your music software.</p>
+      <div class="pad-wrap">
+        <button type="button" class="pad halftone-pad" id="pad" aria-describedby="padHelp">
+          <span class="pad-note num" id="padNote">Play</span>
+        </button>
+        <p class="pad-help" id="padHelp">Press to strike. Hold and slide up to squeeze. Keys A, S, D, F play too.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#get">Download the trial</a>
+        <a class="btn btn--secondary" href="#voices">Hear the five voices</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="voices" id="voices" aria-labelledby="vc-h">
+    <div class="container">
+      <h2 id="vc-h">Five voices from one ensemble</h2>
+    </div>
+    <ul class="rail" id="rail" aria-label="Voices">
+      <li class="voice" data-tags="lead mother low wide"><h3>Ìyá ìlù</h3><p>The mother drum. It leads, with the widest bend.</p><button class="play" type="button" data-f="110" data-bend="12">Play the lead</button></li>
+      <li class="voice" data-tags="answer middle"><h3>Gángan</h3><p>Smaller and higher. It answers the lead.</p><button class="play" type="button" data-f="164" data-bend="9">Play the answer</button></li>
+      <li class="voice" data-tags="high small"><h3>Kànnàngó</h3><p>The smallest, high and quick.</p><button class="play" type="button" data-f="246" data-bend="7">Play the high drum</button></li>
+      <li class="voice" data-tags="steady support"><h3>Àtèlé</h3><p>Keeps the steady pattern under the talk.</p><button class="play" type="button" data-f="138" data-bend="3">Play the steady drum</button></li>
+      <li class="voice" data-tags="bowl kettle fixed"><h3>Gúdúgúdú</h3><p>A bowl drum with a fixed pitch, struck with two sticks.</p><button class="play" type="button" data-f="196" data-bend="0">Play the bowl drum</button></li>
+    </ul>
+    <p class="container rail-empty" id="railEmpty" hidden>No voice matches that. Try lead, high or steady.</p>
+  </section>
+
+  <section class="made" aria-labelledby="md-h">
+    <div class="container made-in">
+      <div class="trace-pin">
+        <figure class="trace well">
+          <canvas id="trace" aria-label="A trace of the last note's pitch over one second" role="img"></canvas>
+          <figcaption id="traceCap">Play a note to draw its pitch.</figcaption>
+        </figure>
+      </div>
+      <div class="panels">
+        <h2 id="md-h">How the note is made</h2>
+        <article class="panel"><h3>Strike</h3><p>A burst of noise for the hand, then the tone of the head.</p></article>
+        <article class="panel"><h3>Squeeze</h3><p>On the real drum the player squeezes the cords and the head tightens. Here aftertouch or the mod wheel does it.</p></article>
+        <article class="panel"><h3>Body</h3><p>A resonant filter stands in for the hourglass of carved wood, and colours every note.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="label-panel" aria-labelledby="lb-h">
+    <div class="container">
+      <h2 id="lb-h">On the back of the box</h2>
+      <dl class="ruled">
+        <div><dt>Formats</dt><dd>VST3, AU and a standalone app</dd></div>
+        <div><dt>Systems</dt><dd>macOS and Windows</dd></div>
+        <div><dt>Strike</dt><dd>Velocity</dd></div>
+        <div><dt>Squeeze</dt><dd>Aftertouch or the mod wheel</dd></div>
+        <div><dt>Bend</dt><dd>Up to an octave</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="get halftone" id="get" aria-labelledby="get-h">
+    <div class="container get-in">
+      <h2 id="get-h">Try it in your own track</h2>
+      <p>The trial is the full instrument.</p>
+      <div class="actions">
+        <a class="btn btn--knock" href="#get" aria-disabled="true" data-endpoint="">Trial for macOS</a>
+        <a class="btn btn--knock" href="#get" aria-disabled="true" data-endpoint="">Trial for Windows</a>
+      </div>
+      <p class="get-note">Frontage showcase: there is no download behind these buttons.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <p class="foot-line">Every note bends, because the drum does.</p>
+    <div class="foot-links"><a href="#voices">Voices</a><a href="#get">Trial</a><a href="#top">Play again</a></div>
+    <p class="foot-legal">Squeeze Drum is an invented brand, part of <a href="../../">Frontage</a>. The sound on this page is synthesised in your browser. Type: Ultra and Chivo (SIL OFL).</p>
+  </div>
+</footer>
+<script>document.documentElement.classList.add('js');</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

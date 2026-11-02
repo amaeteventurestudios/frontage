@@ -43,6 +43,15 @@ const PICKS = {
     material: 'Real: the law-of-cosines IK solve, Blender 4.x as the tool. Pictures: the rig built in the page. Absent: prices, dates, student numbers, testimonials',
     sweep: 'sloplint: 0 FAIL; 39b, 44c and 79 waived on the record',
   },
+  'squeeze-drum': {
+    made: 'Hallmark (floor, Halftone theme, draw 5d4933), a Web Audio synth and a canvas pitch trace in the page',
+    theme: 'Halftone, cream', shape: 'Marquee Hero', genre: 'playful',
+    hero: 'Corridor: the headline over a drum pad you press and slide to bend the note',
+    signature: 'A spot-coloured drum pad whose dot screen thickens as you squeeze, and the note bends up to an octave',
+    sections: 'Hero pad, five voices of the dundun ensemble on a rail, the pitch trace beside how the note is made, the back of the box, the trial band, statement footer',
+    material: 'Real: the dundun family (iya ilu, gangan, kannango, atele, gudugudu) and how the squeeze tightens the head. Pictures: the instrument built in the page. Absent: price, users, reviews; the trial buttons send nothing',
+    sweep: 'sloplint: 0 FAIL; 39b waived for the pad',
+  },
 };
 
 export const SITES = [
@@ -66,7 +75,7 @@ export const SITES = [
   s(18, 'easing-kitchen',    'motion', 'Easing Kitchen', 'An animation library app developers download', 'Squeeze', 'Catalogue', 'Every timing curve animates the same pot lid, so you feel the difference before you copy it'),
   s(19, 'night-bus-titles',  'motion', 'Night Bus Titles', 'A studio for film title sequences', 'Dusk', 'Marquee hero', 'A kinetic title card that plays on load and replays on click'),
   s(20, 'bogolan-motion',    'motion', 'Bogolan Motion', 'A stop-motion studio inspired by mud cloth', 'Loom', 'Photographic', 'Toggle between smooth motion and 12 frames a second'),
-  s(21, 'squeeze-drum',      'play',   'Squeeze Drum', 'A browser synth modelled on the talking drum', 'Halftone', 'Workbench', 'A drum you press and squeeze to bend its pitch'),
+  s(21, 'squeeze-drum',      'play',   'Squeeze Drum', 'A synth plugin modelled on the Yoruba talking drum', 'Halftone', 'Marquee hero', 'A drum you press and squeeze to bend its pitch'),
   s(22, 'owambe-plans',      'play',   'Owambe Plans', 'Planning big parties', 'Carnival', 'Map / diagram', 'A floor plan where you drag tables and the guest count updates'),
   s(23, 'oware-club',        'play',   'Oware Club', 'A paid online oware league with seasons and ranked play', 'Terrazzo', 'Ecosystem index', 'A playable board in the hero, with the real sowing and capture rules'),
   s(24, 'danfo-fm',          'play',   'Danfo FM', 'A community radio app', 'Broadside', 'Long document', 'A tuning dial that sweeps across stations'),

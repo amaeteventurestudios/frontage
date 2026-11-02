@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Silica Coast: chip packaging and test in Lagos</title>
+<meta name="description" content="Flip-chip, wire bond, wafer-level packaging and final test, in the Lekki Free Zone, Lagos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f7f6f1'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='none' stroke='%231b2d44' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500&family=Funnel+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="slab">
+  <div class="container slab-in">
+    <a class="wordmark" href="#top">Silica Coast</a>
+    <nav class="slab-links" aria-label="Sections">
+      <a href="#scales">Five scales</a>
+      <a href="#services">Services</a>
+      <a href="#where">Where</a>
+    </nav>
+    <a class="btn btn--sm" href="mailto:hello@silica-coast.example">Talk to us</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <canvas class="light" id="light" aria-hidden="true"></canvas>
+    <div class="container hero-in">
+      <h1 id="hero-h">We package the chips your fab makes</h1>
+      <p class="lead">Flip-chip, wire bond and final test, on the coast at Lekki.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:hello@silica-coast.example">Talk to us</a>
+        <a class="text-link" href="#scales">Follow one chip down</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stack" id="scales" aria-labelledby="stack-h">
+    <div class="container stack-in">
+      <div class="pane">
+        <div class="pane-sticky">
+          <h2 id="stack-h">One chip, five scales</h2>
+          <p class="pane-now" aria-live="polite"><span class="scale-n" id="scaleN">300 mm</span><span id="scaleName">The wafer, as it arrives from the fab</span></p>
+          <ol class="scale-dots" aria-label="Scales">
+            <li><a href="#s1">Wafer</a></li><li><a href="#s2">Die</a></li><li><a href="#s3">Bumps</a></li><li><a href="#s4">Interposer</a></li><li><a href="#s5">Transistor</a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="frames">
+        <figure class="frame clear" id="s1" data-n="300 mm" data-name="The wafer, as it arrives from the fab">
+          <svg class="diagram" viewBox="0 0 600 600" role="img" aria-label="Diagram of a 300 mm wafer divided into a grid of dies, with its alignment notch"></svg>
+          <figcaption>A 300 mm silicon wafer holds a few hundred dies. We saw it apart along the streets between them.</figcaption>
+        </figure>
+        <figure class="frame clear" id="s2" data-n="10 mm" data-name="One die, sawn free">
+          <svg class="diagram" viewBox="0 0 600 600" role="img" aria-label="Diagram of a single die with an array of solder bump pads across its face"></svg>
+          <figcaption>A die is about the size of a fingernail. Its face carries a grid of pads where solder bumps will sit.</figcaption>
+        </figure>
+        <figure class="frame clear" id="s3" data-n="150 µm" data-name="Solder bumps, flipped onto the substrate">
+          <svg class="diagram" viewBox="0 0 600 600" role="img" aria-label="Cross-section diagram of a flipped die joined to a substrate by a row of solder bumps, with underfill between them"></svg>
+          <figcaption>Flip-chip bumps sit about 150 µm apart. Underfill locks the joint against heat and shock.</figcaption>
+        </figure>
+        <figure class="frame clear" id="s4" data-n="40 µm" data-name="Microbumps on a silicon interposer">
+          <svg class="diagram" viewBox="0 0 600 600" role="img" aria-label="Cross-section diagram of two chips side by side on a silicon interposer, joined by fine microbumps and wiring layers"></svg>
+          <figcaption>Microbumps about 40 µm apart join chips side by side on a silicon interposer, wired through its top layers.</figcaption>
+        </figure>
+        <figure class="frame clear" id="s5" data-n="50 nm" data-name="The transistor, the thing all of this protects">
+          <svg class="diagram" viewBox="0 0 600 600" role="img" aria-label="Cross-section diagram of fin transistors, with gates wrapped over silicon fins"></svg>
+          <figcaption>Down in the die, gates wrap over silicon fins about 50 nm apart. Packaging keeps them cool, powered and connected.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="sv-h">
+    <div class="container">
+      <h2 id="sv-h">What leaves our floor</h2>
+      <ul class="rows">
+        <li><h3>Flip-chip bumping</h3><p>Solder or copper pillar bumps on your wafers, then flip, reflow and underfill.</p></li>
+        <li><h3>Wire bond</h3><p>Gold and copper wire onto lead frames and laminate substrates, for sensors and power parts.</p></li>
+        <li><h3>Wafer-level packaging</h3><p>Redistribution layers and bumps straight on the wafer, for the smallest finished part.</p></li>
+        <li><h3>Final test</h3><p>Electrical test, burn-in and tape and reel, so parts ship ready for the line.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="where" id="where" aria-labelledby="wh-h">
+    <canvas class="light light--band" id="light2" aria-hidden="true"></canvas>
+    <div class="container where-in">
+      <h2 id="wh-h">Lekki Free Zone, Lagos</h2>
+      <p class="statement">Beside the Lekki Deep Sea Port, so finished reels go out by sea or by the airport at Ikeja.</p>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="ct-h">
+    <div class="container contact-in">
+      <h2 id="ct-h">Send us your die</h2>
+      <div class="contact-lines">
+        <p>Tell us the die size, the bump or pad pitch, the package you need and how many.</p>
+        <a class="mail" href="mailto:hello@silica-coast.example">hello@silica-coast.example</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="mast">
+  <div class="container">
+    <p class="mast-word">Silica Coast</p>
+    <div class="mast-links">
+      <a href="#scales">Five scales</a><a href="#services">Services</a><a href="#where">Where</a><a href="mailto:hello@silica-coast.example">Email</a>
+    </div>
+    <p class="legal">Silica Coast is an invented brand, part of <a href="../../">Frontage</a>. The scales are typical figures for current flip-chip and fin transistor processes. Type: Funnel Display and Funnel Sans (SIL OFL).</p>
+  </div>
+</footer>
+<script>document.documentElement.classList.add('js');</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

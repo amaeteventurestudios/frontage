@@ -25,6 +25,15 @@ const PICKS = {
     material: 'Real: station coordinates, orbital mechanics, pass times and coverage worked out live. Pictures: two Wikimedia Commons photographs. Absent: customers, prices, uptime',
     sweep: 'sloplint: Floor clean except 76 (Commons is blocked in the build sandbox, so the render tier could not load the photos); 39b, 44c and 79 waived on the record',
   },
+  'silica-coast': {
+    made: 'Hallmark (floor, Refract theme, draw 9f3cce with the shape swapped), generated light on canvas, structure diagrams drawn to real proportions',
+    theme: 'Refract, glass light, pool colourway', shape: 'Feature Stack (the draw dealt Map / Diagram; swapped because the zoom needs a pinned pane)', genre: 'atmospheric',
+    hero: 'Poster: a wafer catching a prism of sunlight, the headline low left on plain paper',
+    signature: 'One scroll from a 300 mm wafer down to a 50 nm fin transistor, the pinned scale changing as you go',
+    sections: 'Hero, five scales pinned beside their diagrams, what leaves the floor as rows, Lekki as the lit band, the contact close, mast footer',
+    material: 'Real: typical wafer, die, bump, microbump and gate dimensions, the Lekki Free Zone and Lekki Deep Sea Port. Pictures: diagrams built in the page. Absent: customers, capacity, prices',
+    sweep: 'sloplint: 0 FAIL; 77 and 82 waived on the record',
+  },
 };
 
 export const SITES = [
@@ -34,7 +43,7 @@ export const SITES = [
   s(4,  'equator-range',     'space',  'Equator Range', 'A launch site on the equator', 'Vantage', 'Marquee hero', 'Pick a launch latitude and the trajectory redraws with the speed the Earth’s spin gives you'),
   s(5,  'mangrove-ledger',   'space',  'Mangrove Ledger', 'Measuring carbon in mangrove forests from laser scans', 'Spore', 'Split studio', 'A point-cloud forest you rotate and measure tree by tree'),
   s(6,  'okpara-joints',     'matter', 'Okpara Joints', 'Actuators for robot arms and legs', 'Werkstatt', 'Component playground', 'An exploded actuator you pull apart and snap back together'),
-  s(7,  'silica-coast',      'matter', 'Silica Coast', 'Chip packaging foundry', 'Refract', 'Feature stack', 'One scroll zooms from the wafer to a single transistor in five steps'),
+  s(7,  'silica-coast',      'matter', 'Silica Coast', 'Chip packaging and test on the coast at Lekki', 'Refract', 'Feature stack', 'One scroll zooms from the wafer to a single transistor in five steps'),
   s(8,  'gridlet',           'matter', 'Gridlet', 'Controllers for village mini-grids', 'Console', 'Workbench', 'Dusk falls, homes switch on, and you balance solar, battery and load'),
   s(9,  'saltwell-cells',    'matter', 'Saltwell Cells', 'Sodium-ion battery lab', 'Lumen', 'Long document', 'A lab notebook page where ions shuttle across the cell as you charge it'),
   s(10, 'pylonfly',          'matter', 'Pylonfly', 'Drones that inspect power lines', 'Wayfind', 'Photographic', 'A drone’s-eye flight along a line that flags faults as it passes'),

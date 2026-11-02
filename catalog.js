@@ -12,10 +12,23 @@ export const GROUPS = [
 export const KINDS = { deep: 'Deep tech', creative: 'Creative', stretch: 'Stretch' };
 
 const s = (n, slug, group, name, what, theme, shape, signature) =>
-  ({ n, slug, group, name, what, theme, shape, signature, wave: Math.ceil(n / 5), live: false, picks: null });
+  ({ n, slug, group, name, what, theme, shape, signature, wave: Math.ceil(n / 5), live: !!PICKS[slug], picks: PICKS[slug] || null });
+
+/* Picks recorded from each site's Hallmark stamp after its sweep */
+const PICKS = {
+  'harmattan-orbital': {
+    made: 'Hallmark (floor, Blueprint theme, draw 6c604a), Three.js globe, orbit maths computed in the page',
+    theme: 'Blueprint, cyanotype sheet', shape: 'Narrative Workflow', genre: 'modern-minimal',
+    hero: 'Stage: the headline beside a live globe with a time scrubber',
+    signature: 'The three stations\' coverage circles on a globe, with a sample satellite moving through them as you drag time',
+    sections: 'Hero, the Namib as a full-bleed photograph, four steps on a dimension line, the station register, next passes by station, the booking title block, footer',
+    material: 'Real: station coordinates, orbital mechanics, pass times and coverage worked out live. Pictures: two Wikimedia Commons photographs. Absent: customers, prices, uptime',
+    sweep: 'sloplint: Floor clean except 76 (Commons is blocked in the build sandbox, so the render tier could not load the photos); 39b, 44c and 79 waived on the record',
+  },
+};
 
 export const SITES = [
-  s(1,  'harmattan-orbital', 'space',  'Harmattan Orbital', 'Small-satellite ground stations across the Sahel', 'Blueprint', 'Map / diagram', 'A 3D globe where you drag time and watch pass windows open over Kano, Nairobi and Windhoek'),
+  s(1,  'harmattan-orbital', 'space',  'Harmattan Orbital', 'Ground stations in Kano, Nairobi and Windhoek for small satellites', 'Blueprint', 'Map / diagram', 'A 3D globe where you drag time and watch pass windows open over Kano, Nairobi and Windhoek'),
   s(2,  'ndani-geo',         'space',  'Ndani Geo', 'Underground imaging to find water before drilling a borehole', 'Furrow', 'Narrative workflow', 'Scrolling slices down through the rock, one layer per section'),
   s(3,  'sabi-nowcast',      'space',  'Sabi Nowcast', 'Rain warnings by the street for farmers and traders', 'Solstice', 'Workbench', 'A rain cell sweeps the map as you drag through the next 90 minutes'),
   s(4,  'equator-range',     'space',  'Equator Range', 'A launch site on the equator', 'Vantage', 'Marquee hero', 'Pick a launch latitude and the trajectory redraws with the speed the Earth’s spin gives you'),

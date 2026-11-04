@@ -20,6 +20,11 @@ The Hallmark licence notice, as its terms require for copied portions:
 - Source: https://github.com/mrdoob/three.js
 - Licence: MIT, copyright (c) 2010-2023 three.js authors (full text in `vendor/three/LICENSE`)
 
+**GSAP** 3.15.1 with ScrollTrigger, SplitText, DrawSVGPlugin and CustomEase, vendored in `vendor/gsap/` (unchanged minified builds from the `gsap` npm package).
+- Source: https://gsap.com and https://github.com/greensock/GSAP
+- Licence: GreenSock standard no-charge licence, commercial use included: https://gsap.com/standard-license. Not covered by Frontage's MIT licence.
+- Approach: the official GSAP agent skills (MIT), https://github.com/greensock/gsap-skills, and the Animate skill's timing rules, https://github.com/delphi-ai/animate-skill
+
 ## Fonts
 
 Loaded from Google Fonts, all under the SIL Open Font License 1.1.

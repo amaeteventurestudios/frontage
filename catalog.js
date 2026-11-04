@@ -17,7 +17,7 @@ const s = (n, slug, group, name, what, theme, shape, signature) =>
 /* Picks recorded from each site's Hallmark stamp after its sweep */
 const PICKS = {
   'harmattan-orbital': {
-    made: 'Hallmark (floor, Blueprint re-lit at night), Tasteskill art direction and motion layer, Three.js globe and pass scene, orbit and sun maths computed in the page, honest 24-hour pass chart',
+    made: 'Hallmark (floor, Blueprint re-lit at night), Tasteskill art direction, GSAP motion (ScrollTrigger, SplitText, DrawSVG) built to the GSAP and Animate skills, Three.js globe and pass scene, orbit and sun maths computed in the page, honest 24-hour pass chart',
     theme: 'Blueprint, re-lit at night in Harmattan amber', shape: 'Narrative Workflow', genre: 'atmospheric',
     hero: 'Full-bleed stage: an opening orbit draw, then the headline beside a live globe lit by the real sun, with a time scrubber',
     signature: 'One real pass over Kano told by scroll: the dish turns and tilts to follow the satellite, the downlink streams in, the dials read the live angles',

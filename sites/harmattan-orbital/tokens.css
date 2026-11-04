@@ -15,7 +15,7 @@
   --color-rule: oklch(96% 0.012 80 / 0.5); --color-rule-2: oklch(96% 0.012 80 / 0.14);
   --color-grid: oklch(96% 0.012 80 / 0.06); --color-grid-2: oklch(96% 0.012 80 / 0.16);
   --color-accent: oklch(80% 0.145 70); --color-accent-deep: oklch(68% 0.16 58); --color-accent-ink: oklch(16% 0.03 60); --color-focus: oklch(85% 0.14 75);
-  --color-haze: oklch(74% 0.15 62); --color-ocean: oklch(20% 0.045 252); --color-land: oklch(88% 0.08 78); --color-night-land: oklch(52% 0.06 72);
+  --color-haze: oklch(74% 0.15 62); --color-ocean: oklch(20% 0.045 252); --color-land: oklch(88% 0.08 78); --color-night-land: oklch(64% 0.085 72);
   --color-space: oklch(8% 0.015 265); --color-star: oklch(95% 0.02 240); --color-signal: oklch(86% 0.09 200);
   --font-display: "Chakra Petch", ui-sans-serif, sans-serif; --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
   --font-outlier: "IBM Plex Mono", ui-monospace, monospace;

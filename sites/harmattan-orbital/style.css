@@ -31,18 +31,17 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 .btn:hover::before { transform: scaleX(1); }
 .btn--ghost:hover { color: var(--color-paper); }
 .btn:active { transform: scale(0.97); }
+.js .btn.mag { transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.js .btn.mag span { transition: none; }
 .btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; transition: none; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn--sm { min-height: 44px; padding: 0 var(--space-md); font-size: var(--text-sm); }
 
 /* ---------- opening ---------- */
 .intro { display: none; }
-.js .intro { position: fixed; inset: 0; z-index: var(--z-modal); display: grid; place-items: center; background: var(--color-space); pointer-events: none; animation: intro-out 0.9s var(--ease-in-out) 1.7s forwards; }
-.intro-orbit { position: absolute; width: min(70vw, 560px); fill: none; stroke: var(--color-accent); stroke-width: 1.2; stroke-dasharray: 760; stroke-dashoffset: 760; animation: draw 1.4s var(--ease-out) 0.1s forwards; }
-.intro-word { position: relative; font: 500 var(--text-xl) var(--font-display); color: var(--color-ink); opacity: 0; animation: fade-up 0.8s var(--ease-out) 0.4s forwards; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-@keyframes intro-out { to { opacity: 0; visibility: hidden; transform: scale(1.04); } }
+.js .intro { position: fixed; inset: 0; z-index: var(--z-modal); display: grid; place-items: center; background: var(--color-space); pointer-events: none; }
+.intro-orbit { position: absolute; width: min(70vw, 560px); fill: none; stroke: var(--color-accent); stroke-width: 1.2; }
+.intro-word { position: relative; font: 500 var(--text-xl) var(--font-display); color: var(--color-ink); }
 
 /* ---------- masthead ---------- */
 .mast { position: fixed; inset: 0 0 auto 0; z-index: var(--z-sticky-nav); transition: background-color var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
@@ -79,16 +78,10 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 .scrub input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .scrub output { color: var(--color-ink); min-width: 7ch; text-align: right; font-size: var(--text-sm); }
 
-/* split headline: each word rises out of its own mask */
-.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
-.split .w > span { display: inline-block; }
-.js .split .w > span { transform: translateY(105%); transition: transform 1.1s var(--ease-out); transition-delay: calc(1.6s + var(--i) * 90ms); }
-.js .split.in .w > span { transform: none; }
 
 /* everything else rises once as it enters */
-.js .rise { opacity: 0; transform: translateY(var(--rise)); transition: opacity 0.9s var(--ease-out), transform 1.1s var(--ease-out); transition-delay: calc(var(--d, 0) * 80ms); }
-.js .rise.in { opacity: 1; transform: none; }
-.js .hero .rise { transition-delay: calc(1.6s + var(--d, 0) * 90ms); }
+/* GSAP sets every entrance from motion in app.js; with scripting off everything simply shows */
+.mask { overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
 
 /* ---------- the pass, told by scroll ---------- */
 .pass { position: relative; height: calc(420 * var(--vh)); background: var(--color-space); }
@@ -113,7 +106,7 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 /* ---------- the Namib band ---------- */
 .photo-band { position: relative; height: calc(88 * var(--vh)); min-height: 480px; overflow: hidden; display: grid; align-items: end; background: var(--color-paper); }
 .band-img { position: absolute; inset: 0; background: var(--color-paper); }
-.band-img img, .book-sky img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; transform: translateY(calc(var(--p, 0) * 8%)) scale(1.06); }
+.band-img img, .book-sky img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
 .photo-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-space) 0%, transparent 30%, transparent 55%, var(--color-space) 100%); }
 .band-line { position: relative; z-index: 1; padding-bottom: var(--space-3xl); font: 500 clamp(2rem, 4.2vw, 4.25rem)/1.05 var(--font-display); letter-spacing: -0.02em; color: var(--color-ink); max-width: 18ch; margin-inline: 0; }
 .band-line span { display: inline-block; }
@@ -129,8 +122,7 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 .st-head .lead { color: var(--color-ink-2); }
 .st-map svg { display: block; width: 100%; height: auto; max-height: calc(86 * var(--vh)); margin-inline: auto; overflow: visible; }
 .st-map .dot { fill: var(--color-night-land); }
-.st-map .ring { fill: var(--color-accent-wash); stroke: var(--color-accent); stroke-width: 1.2; stroke-dasharray: var(--len); stroke-dashoffset: var(--len); transition: stroke-dashoffset 1.8s var(--ease-out), fill-opacity var(--dur-long) var(--ease-out), stroke-width var(--dur-short) var(--ease-out); }
-.st-map.in .ring { stroke-dashoffset: 0; }
+.st-map .ring { fill: var(--color-accent-wash); stroke: var(--color-accent); stroke-width: 1.2; transition: fill-opacity var(--dur-long) var(--ease-out), stroke-width var(--dur-short) var(--ease-out); }
 .st-map .ring.hot { fill: var(--color-accent-wash-2); stroke-width: 2.5; }
 .st-map .beacon { fill: var(--color-ink); }
 .st-map .pulse { fill: none; stroke: var(--color-accent); transform-box: fill-box; transform-origin: center; animation: beacon 2.8s var(--ease-out) infinite; }
@@ -153,8 +145,7 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 .lane { display: grid; grid-template-columns: var(--space-4xl) minmax(0, 1fr); align-items: center; gap: var(--space-lg); }
 .lane-name { font: 500 var(--text-lg) var(--font-display); color: var(--color-ink); }
 .track { position: relative; height: 96px; background: var(--color-paper); border-radius: var(--radius-card); background-image: repeating-linear-gradient(90deg, var(--color-grid) 0 1px, transparent 1px calc(100% / 8)); }
-.pbar { position: absolute; bottom: 0; width: max(10px, var(--w)); height: var(--h); left: var(--x); padding: 0; border: 0; border-radius: 3px 3px 0 0; background: var(--color-accent); opacity: 0.9; cursor: pointer; transform-origin: bottom; transform: scaleY(0); transition: transform 0.9s var(--ease-out) calc(var(--i) * 40ms), background-color var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); }
-.timeline.in .pbar { transform: none; }
+.pbar { position: absolute; bottom: 0; width: max(10px, var(--w)); height: var(--h); left: var(--x); padding: 0; border: 0; border-radius: 3px 3px 0 0; background: var(--color-accent); opacity: 0.9; cursor: pointer; transform-origin: bottom; transition: background-color var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out); }
 .pbar:hover, .pbar:focus-visible { background: var(--color-ink); opacity: 1; }
 .pbar:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 .pbar[aria-pressed="true"] { background: var(--color-ink); box-shadow: 0 0 0 3px var(--color-accent); }
@@ -193,14 +184,9 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 
 /* ---------- footer ---------- */
 .foot { position: relative; padding-block: var(--space-3xl) var(--space-2xl); background: var(--color-space); overflow: hidden; }
-.foot-orbit { width: 100%; height: 120px; fill: none; stroke: var(--color-accent); stroke-width: 1; stroke-dasharray: var(--len, 1400); stroke-dashoffset: var(--len, 1400); transition: stroke-dashoffset 2.4s var(--ease-out); }
-.foot.in .foot-orbit { stroke-dashoffset: 0; }
+.foot-orbit { width: 100%; height: 120px; fill: none; stroke: var(--color-accent); stroke-width: 1; }
 .foot-mark { display: block; font: 600 clamp(2rem, 8.6vw, 9.25rem)/0.9 var(--font-display); letter-spacing: -0.04em; white-space: nowrap; color: var(--color-ink); text-decoration: none; margin-top: calc(var(--space-xl) * -1); overflow-wrap: break-word; min-width: 0; }
 .foot-mark:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 6px; }
-.foot-mark .w { display: inline-block; overflow: hidden; vertical-align: top; }
-.foot-mark .w > span { display: inline-block; }
-.js .foot-mark .w > span { transform: translateY(100%); transition: transform 1.2s var(--ease-out); transition-delay: calc(var(--i) * 110ms); }
-.js .foot.in .foot-mark .w > span { transform: none; }
 .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-lg); margin-block: var(--space-2xl) var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-rule-2); }
 .foot-links { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
 .foot-links a { font-size: var(--text-sm); }
@@ -255,13 +241,9 @@ a { color: var(--color-ink); text-decoration-color: var(--color-accent); }
 /* ---------- reduced motion: everything in place, nothing travels ---------- */
 @media (prefers-reduced-motion: reduce) {
   .js .intro { display: none; }
-  .js .split .w > span, .js .foot-mark .w > span, .js .rise, .js .chapters li:not(.on) { transform: none; transition: opacity var(--dur-short) linear; }
-  .js .rise { opacity: 1; }
-  .band-img img, .book-sky img { transform: none; }
+  .js .chapters li:not(.on) { transform: none; transition: opacity var(--dur-short) linear; }
   .live-dot, .st-map .pulse { animation: none; }
-  .st-map .ring, .foot-orbit { stroke-dashoffset: 0; transition: none; }
-  .pbar { transform: none; transition: none; }
-  .btn::before { transition: none; }
+  .btn::before, .btn, .btn span { transition: none; }
 }
 
 /* big screens: show the 1920 layout larger */
